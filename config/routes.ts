@@ -2,7 +2,11 @@ export default [
   {
     path: '/user',
     layout: false,
-    routes: [{ path: '/user/login', component: './user/Login' }, { component: './404' }],
+    routes: [
+      { path: '/user/login', component: './user/Login' },
+      { path: '/user/register', component: './user/Register' },
+      { component: './404' }
+    ],
   },
   { path: '/welcome', icon: 'smile', component: './Welcome' },
   {

@@ -27,7 +27,7 @@ const LoginMessage: React.FC<{
     showIcon
   />
 );
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
@@ -73,8 +73,8 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="Willow EVERMORE"
-          subTitle={<a href={LINK} target={"_blank"}>小菠萝你不喜欢吗 啊</a>}
+          title="王腾腾的小项目"
+          subTitle={<a href={LINK} target={"_blank"}>王疼疼搞的第一个小项目 小菠萝你不喜欢吗 啊</a>}
           initialValues={{
             autoLogin: true,
           }}
@@ -130,6 +130,24 @@ const Login: React.FC = () => {
                   },
                 ]}
               />
+              <ProFormText.Password
+                name="userPassword"
+                fieldProps={{
+                  size: 'large',
+                  prefix: <LockOutlined className={styles.prefixIcon} />,
+                }}
+                placeholder={'请输入密码:'}
+                rules={[
+                  {
+                    required: true,
+                    message: '密码是必填项！',
+                  },
+                  {
+                    min: 8,
+                    message: '密码不得小于八位！',
+                  },
+                ]}
+              />
             </>
           )}
 
@@ -158,4 +176,4 @@ const Login: React.FC = () => {
     </div>
   );
 };
-export default Login;
+export default Register;
